@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search API Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input[type="text"] {
+            width: calc(100% - 100px);
+            padding: 10px;
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+        }
+        .results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search API Example</h1>
+        <form id="searchForm">
+            <input type="text" id="searchInput" placeholder="Enter search term..." required>
+            <input type="submit" value="Search">
+        </form>
+        <div id="results" class="results"></div>
+    </div>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const query = document.getElementById('searchInput').value;
+            const apiUrl = `http://ec2-34-235-87-227.compute-1.amazonaws.com:8000/search?query=${encodeURIComponent(query)}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const resultsDiv = document.getElementById('results');
+                    resultsDiv.innerHTML = '';
+
+                    if (data.results && data.results.length > 0) {
+                        data.results.forEach(item => {
+                            const itemElement = document.createElement('div');
+                            itemElement.textContent = item.title; // Adjust based on the API response structure
+                            resultsDiv.appendChild(itemElement);
+                        });
+                    } else {
+                        resultsDiv.textContent = 'No results found.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        });
+    </script>
+</body>
+</html>

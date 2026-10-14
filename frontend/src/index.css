@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.chat-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 70vh;
+  }
+  
+  .chat {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 1px;
+  /* background-color: red; */
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  height: 547px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #888;
+  }
+  .h4{
+    text-align: left;
+  }
+  .chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  }
+  
+  .chat-header {
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 5px;
+  text-align: left; 
+  text-size-adjust: 30px;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100%;
+  }
+  
+  .message-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px; 
+  }
+  
+  .Message {
+  /* margin-bottom: 1px; */
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+  }
+  .message{
+    display: flex;
+  justify-content: flex-end;
+  }
+  
+  .message-bubble {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #007bff;
+  color: #ffffff;
+  border-bottom-right-radius: 0;
+  max-width: 50%;
+  text-align:left;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  box-sizing: border-box;
+  
+  }
+  
+  .MsgInputContainer {
+  display: flex;
+  align-items: center; 
+  padding-bottom: 20px;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 1px;
+  padding-top: 4px;
+  }
+  
+  .MsgInputContainer form {
+  display: flex; 
+  width: 100%;
+  align-items: center;
+  }
+  
+  .message-input {
+  flex: 1;
+  padding: 7px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  box-sizing: border-box;
+  }
+  
+  .submit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer; 
+  padding: 10px;
+  box-sizing: border-box;
+  }
+  
+  .submit-button:hover {
+  background-color: #0056b3;
+  }
+  
